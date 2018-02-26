@@ -48,10 +48,16 @@ const root = {
 let socket = zmq.socket("rep");
 socket.connect("tcp://localhost:1339");
 socket.on("message", async q => {
-  const query = q.toString("utf-8");
-  console.log(query);
-  const result = await graphql(schema, query, root);
+  const operation = JSON.parse(q.toString("utf-8"));
+  console.log(operation);
+  const result = await graphql({
+    contextValue: operation.context,
+    schema,
+    source: operation.query,
+    variableValues: operation.variables,
+    rootValue: root,
+  });
   console.log(result);
-  socket.send(JSON.stringify(result.data));
+  socket.send(JSON.stringify(result));
 });
 
