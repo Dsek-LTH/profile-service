@@ -5,10 +5,11 @@
   "main": "build/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bulid": "tslint --project . && tsc && npm start",
+    "build": "tslint --project . && tsc && npm start",
     "dev": "tsc && npm start",
     "start": "node build/main.js",
-    "watch": "nodemon -e ts -w src --exec 'npm run dev'"
+    "install": "tsc",
+    "watch": "nodemon -L -e ts -w src --exec 'npm run dev'"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +19,6 @@
     "@types/zeromq": "^4.5.3",
     "graphql": "^0.12.3",
     "nodemon": "^1.14.11",
-    "source-map-support": "^0.5.1",
     "tslint": "^5.9.1",
     "tslint-config-prettier": "^1.6.0",
     "typescript": "^2.6.2"
@@ -26,6 +26,7 @@
   "dependencies": {
     "graphql": "^0.12.3",
     "uuid": "^3.2.1",
-    "zeromq": "^4.6.0"
+    "zeromq": "^4.6.0",
+    "source-map-support": "^0.5.1"
   }
 }

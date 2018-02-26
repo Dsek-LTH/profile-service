@@ -6,7 +6,7 @@ import { graphql, buildSchema } from "graphql";
 
 const schema = buildSchema(`
 type Query {
-  user(id: Number): User
+  user(id: Int): User
 }
 
 type User { 
@@ -20,7 +20,7 @@ interface User {
 	fullName: string;
 }
 
-const users: [User] = [
+const users: User[] = [
 	{
 		name: "deox",
 		fullName: "Nils Ceberg"
@@ -29,7 +29,11 @@ const users: [User] = [
 		name: "truls",
 		fullName: "Truls Trulsson"
 	},
-]
+	{
+		name: "bbq",
+		fullName: "Viktor Claesson"
+	},
+];
 
 const root = {
   user: (args: { id: number }): User => {
