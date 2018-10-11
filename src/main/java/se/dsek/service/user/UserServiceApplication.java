@@ -1,4 +1,4 @@
-package se.dsek.service.user.userservice;
+package se.dsek.service.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
