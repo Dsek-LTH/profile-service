@@ -2,6 +2,7 @@ package se.dsek.service.user.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
@@ -49,6 +50,13 @@ public class UserService {
 			}
 		}
 		return null;
+	}
+
+	public UserDto createUser(UserDto user) {
+		Integer id = new Random().nextInt(Integer.MAX_VALUE);
+		user.setId(id);
+		users.add(user);
+		return user;
 	}
 
 }
