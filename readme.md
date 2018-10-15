@@ -1,7 +1,9 @@
 The profile service handles the users of the system. It handles all requests regarding names, account information and such. It does not have hold the auth information, that is handled by the login-service.
 
 # Endpoints
-
+* GET /users Lists all users in the system
+* GET /user/(user id) shows a single user with the same id as the request
+* POST /user adds a new user
 
 
 # Data

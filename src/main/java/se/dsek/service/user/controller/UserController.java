@@ -19,6 +19,7 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
+
 	private static Logger log = LoggerFactory.getLogger(UserController.class);
 
 	@GetMapping("/users")
@@ -37,9 +38,9 @@ public class UserController {
 
 	@PostMapping("/user")
 	public UserDto createUser(@RequestBody UserDto user) {
-		log.info("{}",user.getId());
+		log.info("{}", user.getId());
 		UserDto newUser = service.createUser(user);
-		log.info("{}",newUser.getId());
+		log.info("{}", newUser.getId());
 		return newUser;
 	}
 
