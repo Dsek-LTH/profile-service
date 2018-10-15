@@ -38,9 +38,8 @@ public class UserController {
 
 	@PostMapping("/user")
 	public UserDto createUser(@RequestBody UserDto user) {
-		log.info("{}", user.getId());
 		UserDto newUser = service.createUser(user);
-		log.info("{}", newUser.getId());
+		log.info("New user created, id:{}", user.getId());
 		return newUser;
 	}
 
