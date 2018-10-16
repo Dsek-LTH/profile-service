@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import se.dsek.service.user.entity.UserDto;
+import se.dsek.service.user.exception.InvalidUserException;
 import se.dsek.service.user.service.UserService;
 
 @RestController
@@ -32,6 +33,7 @@ public class UserController {
 		UserDto user = service.getUser(id);
 		if (user == null) {
 			log.warn("Unkown user id {}", id);
+			throw new InvalidUserException(id);
 		}
 		return user;
 	}
